@@ -1,4 +1,4 @@
-// write fibs using iteration
+// generate fibs using iteration
 const fibs = (number) => {
     let array = [0,1]
     for (let i = 0; i < number-2; i++) {
@@ -7,13 +7,13 @@ const fibs = (number) => {
     return array
 }
 
-// write fibs using recursion
+// generate fibs using recursion
 const fibsRec = (number) => {
     // base case
     if (number === 2) {
         return [0,1]
     }
-    // recursion case
+    // recursive case
     let result = fibsRec(number-1)
     return result.concat(result[result.length - 2] + result[result.length -1 ])
 }

@@ -1,6 +1,10 @@
 # recursionPractice
 
-ran on node.js
+to use, run :
+```
+npm install
+npm run watch
+```
 
 <section id="assignment-1">
   <h3><a href="#assignment-1" class="anchor-link">Assignment 1</a></h3>

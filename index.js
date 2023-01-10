@@ -1,5 +1,5 @@
-import { fibs, fibsRec } from "./modules/fibonacci.js"
-import { mergeSort } from "./modules/mergeSort.js"
+import { fibs, fibsRec } from "./modules/fibonacciGenerator.mjs"
+import { mergeSort } from "./modules/mergeSort.mjs"
 
 let fibsInput = 4000
 console.time(`generating ${fibsInput} fibs using iteration`)
@@ -10,7 +10,7 @@ console.time(`generating ${fibsInput} fibs using recursion`)
 const recursiveFibs = fibsRec(fibsInput)
 console.timeEnd(`generating ${fibsInput} fibs using recursion`)
 
-let arrayInput = 1000
+let arrayInput = 100
 // console.time(`populating ${arrayInput} array`)
 let randomArray = []
 for (let i = 0; i < 50000; i++){
@@ -22,3 +22,4 @@ console.time(`sorting ${arrayInput} array using mergeSort recursively`)
 const sortedArray = mergeSort(randomArray)
 // console.log({sortedArray})
 console.timeEnd(`sorting ${arrayInput} array using mergeSort recursively`)
+console.log('test a')
