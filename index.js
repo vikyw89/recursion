@@ -158,15 +158,75 @@ let result
 // l = [10,[[10],10],[10]] 
 // console.log(SumSquares(l)); // 100 + 100 + 100 + 100 = 400
 
-const replicate = (a,b) => {
+// const replicate = (a,b) => {
+//     // break case
+//     if (a < 1) {
+//         return []
+//     }
+//     // recursion
+//     return [b].concat(replicate(a-1, b))
+// }
+
+// console.log(replicate(3, 5)) // [5, 5, 5]
+// console.log(replicate(1, 69)) // [69]
+// console.log(replicate(-2, 6)) // []
+
+// write fibs using iteration
+
+// const fibs = (number) => {
+//     let array = [0,1]
+//     for (let i = 0; i < number-2; i++) {
+//         array.push(array[array.length-2] + array[array.length-1])
+//     }
+//     return array
+// }
+
+// console.log(fibs(10))
+
+// const fibsRec = (number) => {
+//     // base case
+//     if (number === 2) {
+//         return [0,1]
+//     }
+//     // recursion case
+//     let result = fibsRec(number-1)
+//     return result.concat(result[result.length - 2] + result[result.length -1 ])
+// }
+
+// console.log(fibsRec(10))
+
+const mergeSort = (arr) => {
     // break case
-    if (a < 1) {
-        return []
+    if (arr.length === 1) {
+        return [arr[0]]
     }
-    // recursion
-    return [b].concat(replicate(a-1, b))
+    // recursion case (split array into 2 then sort it)
+    let left = arr.slice(0,Math.ceil(arr.length / 2))
+    let right = arr.slice(Math.ceil(arr.length / 2))
+    let sortedLeft = mergeSort(left)
+    let sortedRight = mergeSort(right)
+    let result = []
+    for (let i = 0; i < arr.length; i++) {
+        switch (true) {
+            case !sortedLeft[0]:
+                result.push(sortedRight[0])
+                sortedRight.shift()
+                break
+            case !sortedRight[0]:
+                result.push(sortedLeft[0])
+                sortedLeft.shift()
+                break
+            case sortedLeft[0] <= sortedRight[0]:
+                result.push(sortedLeft[0])
+                sortedLeft.shift()
+                break
+            case sortedRight[0] <= sortedLeft[0]:
+                result.push(sortedRight[0])
+                sortedRight.shift()
+                break
+        }
+    }
+    return result
 }
 
-console.log(replicate(3, 5)) // [5, 5, 5]
-console.log(replicate(1, 69)) // [69]
-console.log(replicate(-2, 6)) // []
+console.dir(mergeSort([1,54,6,6,9,1,-2,6,70,282]))
