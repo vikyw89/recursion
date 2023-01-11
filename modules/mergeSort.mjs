@@ -1,4 +1,4 @@
-const mergeSort = (arr) => {
+const recursiveMergeSort = (arr) => {
     // base case
     if (arr.length === 1) {
         return [arr[0]]
@@ -6,11 +6,11 @@ const mergeSort = (arr) => {
     // recursive case
     let left = arr.slice(0,Math.ceil(arr.length / 2))
     let right = arr.slice(Math.ceil(arr.length / 2))
-    let sortedLeft = mergeSort(left)
-    let sortedRight = mergeSort(right)
+    let sortedLeft = recursiveMergeSort(left)
+    let sortedRight = recursiveMergeSort(right)
     let sorted = []
     sorting:
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < Infinity; i++) {
         switch (true) {
             case !sortedLeft[0]:
                 sorted.push(...sortedRight)
@@ -31,4 +31,4 @@ const mergeSort = (arr) => {
     return sorted
 }
 
-export { mergeSort }
+export { recursiveMergeSort }
