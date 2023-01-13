@@ -12,6 +12,10 @@ const fibsRec = (number) => {
     // base case
     if (number === 2) {
         return [0,1]
+    } else if (number === 1 ) {
+        return [0]
+    } else if (number === 0) {
+        return []
     }
     // recursive case
     let result = fibsRec(number-1)
